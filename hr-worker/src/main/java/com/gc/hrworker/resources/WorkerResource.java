@@ -2,6 +2,9 @@ package com.gc.hrworker.resources;
 
 import com.gc.hrworker.entities.Worker;
 import com.gc.hrworker.services.WorkerService;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -11,12 +14,16 @@ import java.util.List;
 @RestController
 @RequestMapping(value = "/workers")
 public class WorkerResource {
+
+    private final Environment environment;
+    private static Logger logger = LoggerFactory.getLogger(WorkerResource.class);
+
     private final WorkerService workerService;
 
-    public WorkerResource(WorkerService workerService) {
+    public WorkerResource(Environment environment, WorkerService workerService) {
+        this.environment = environment;
         this.workerService = workerService;
     }
-
 
     @GetMapping
     public ResponseEntity<List<Worker>> findAll(){
@@ -25,6 +32,8 @@ public class WorkerResource {
     }
     @GetMapping(value = "/{id}")
     public ResponseEntity<Worker> findById(@PathVariable Long id){
+        logger.info("PORT="+ environment.getProperty("local.server.port"));
+
         Worker worker = workerService.findById(id);
         return ResponseEntity.ok().body(worker);
     }
