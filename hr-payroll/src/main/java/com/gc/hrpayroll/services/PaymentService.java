@@ -10,7 +10,7 @@ import java.util.Map;
 
 @Service
 public class PaymentService {
-    private WorkerFeignClient workerFeignClient;
+    private final WorkerFeignClient workerFeignClient;
 
     public PaymentService(WorkerFeignClient workerFeignClient) {
         this.workerFeignClient = workerFeignClient;
