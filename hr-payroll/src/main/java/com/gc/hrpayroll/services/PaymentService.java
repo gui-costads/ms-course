@@ -5,8 +5,7 @@ import com.gc.hrpayroll.entities.Worker;
 import com.gc.hrpayroll.feignclients.WorkerFeignClient;
 import org.springframework.stereotype.Service;
 
-import java.util.HashMap;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class PaymentService {
@@ -16,12 +15,9 @@ public class PaymentService {
         this.workerFeignClient = workerFeignClient;
     }
 
-
     public Payment getPayment(Long workerId, Integer days){
         Map<String, String> uriVariables = new HashMap<>();
-        uriVariables.put("id", ""+workerId);
-
-
+        uriVariables.put("id", "" + workerId);
         Worker worker = workerFeignClient.findById(workerId).getBody();
         return new Payment(worker.getName(), worker.getDailyIncome(), days);
     }

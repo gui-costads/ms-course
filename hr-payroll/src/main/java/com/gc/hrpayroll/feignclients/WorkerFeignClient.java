@@ -1,8 +1,6 @@
 package com.gc.hrpayroll.feignclients;
 
 import com.gc.hrpayroll.entities.Worker;
-import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClient;
-import org.springframework.cloud.loadbalancer.annotation.LoadBalancerClientConfiguration;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
