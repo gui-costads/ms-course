@@ -7,6 +7,7 @@
         <option value="$PROJECT_DIR$/hr-worker/pom.xml" />
         <option value="$PROJECT_DIR$/hr-payroll/pom.xml" />
         <option value="$PROJECT_DIR$/hr-eureka-server/pom.xml" />
+        <option value="$PROJECT_DIR$/hr-spring-cloud-gateway/pom.xml" />
       </list>
     </option>
   </component>
