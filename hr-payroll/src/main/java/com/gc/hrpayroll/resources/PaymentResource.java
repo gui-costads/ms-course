@@ -35,7 +35,7 @@ public class PaymentResource {
             logger.info("Save in cache");
             CACHE.put(workerId, response);
             return response;
-    }catch (Exception e){
+        }catch (Exception e){
             logger.error("Not found");
             throw e;
         }
