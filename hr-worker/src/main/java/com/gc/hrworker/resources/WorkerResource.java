@@ -4,6 +4,7 @@ import com.gc.hrworker.entities.Worker;
 import com.gc.hrworker.services.WorkerService;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.env.Environment;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -17,12 +18,19 @@ public class WorkerResource {
 
     private final Environment environment;
     private static Logger logger = LoggerFactory.getLogger(WorkerResource.class);
+    @Value("${test.config}")
+    private String testConfig;
 
     private final WorkerService workerService;
 
     public WorkerResource(Environment environment, WorkerService workerService) {
         this.environment = environment;
         this.workerService = workerService;
+    }
+    @GetMapping(value = "/configs")
+    public ResponseEntity<Void> getConfigs(){
+        logger.info("CONFIG = " + testConfig);
+        return ResponseEntity.noContent().build();
     }
 
     @GetMapping
