@@ -11,6 +11,7 @@
         <module name="hr-eureka-server" />
         <module name="hr-worker" />
         <module name="hr-spring-cloud-gateway" />
+        <module name="hr-user" />
       </profile>
     </annotationProcessing>
   </component>
@@ -20,6 +21,7 @@
       <module name="hr-eureka-server" options="-parameters" />
       <module name="hr-payroll" options="-parameters" />
       <module name="hr-spring-cloud-gateway" options="-parameters" />
+      <module name="hr-user" options="-parameters" />
       <module name="hr-worker" options="-parameters" />
     </option>
   </component>
